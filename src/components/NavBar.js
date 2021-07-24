@@ -1,22 +1,23 @@
 import React from 'react'
 import CustomBtn from './CustomBtn'
-import logo from '../logo.jpg'
+import logo from '../logos/logo.jpg'
 import {Toolbar, Typography} from '@material-ui/core'
 import {makeStyles} from "@material-ui/core/styles"; 
+import {Link} from 'react-router-dom'
 
 const styles = makeStyles({
     bar:{
         paddingTop: "1.15rem",
         backgroundColor: "#fff",
         ['@media (max-width:780px)']: { 
-           flexDirection: "column"
-          }
+            flexDirection: "column"
+            }
     },
     logo: {
-        width: "15%", 
+        width: "17%", 
         ['@media (max-width:780px)']: { 
-           display: "none"
-           }
+            display: "none"
+            }
     },
     menuItem: {
         cursor: "pointer", 
@@ -34,22 +35,28 @@ function NavBar() {
     return (
             <Toolbar position="sticky" color="rgba(0, 0, 0, 0.87)" className={classes.bar}>   
                 <img src={logo} className={classes.logo}/> 
-                <Typography variant="h6" className={classes.menuItem}>
-                   About Us
-                </Typography>
-                <Typography variant="h6" className={classes.menuItem}>
-                    Our Services
-                </Typography>
-                <Typography variant="h6" className={classes.menuItem}>
+                <Link to="/" variant="h6" className={classes.menuItem}>
+                    Home
+                </Link>
+                <Link link to="/about" variant="h6" className={classes.menuItem}>
+                    About us
+                </Link>
+                <Link to="/approach" variant="h6" className={classes.menuItem}>
                     Our Approach
-                </Typography>
-                <Typography variant="h6" className={classes.menuItem}>
+                </Link>
+                <Link to="/services" variant="h6" className={classes.menuItem}>
+                    Our Services 
+                </Link>
+                <Link to="/clients" variant="h6" className={classes.menuItem}>
+                    Our Clients 
+                </Link>
+                <Link to="/news" variant="h6" className={classes.menuItem}>
                     News 
-                </Typography>
-                <Typography variant="h6" className={classes.menuItem}>
+                </Link>
+                <Link to="/contact" variant="h6" className={classes.menuItem}>
                     Contact Us 
-                </Typography>
-                <CustomBtn txt="Speak with an adviser"/>
+                </Link>
+                <CustomBtn txt="chat with an adviser"/>
             </Toolbar>
     )
 }
